@@ -131,14 +131,14 @@ Créez le document sales suivant, nous créerons au préalable un schéma cette 
 ```js
 
 db.createCollection("sales", 
-    { capped : true, size : 5242880, max : 5000 },
-    {
-        validator : {
+    { capped : true, size : 5242880, max : 5000, validator : {
             $jsonSchema : {
                 bsonType : "object",
                 required : ["price"],
                 properties : {
-                    agency : "string",
+                    agency : {
+                        bsonType: "string"
+                    },
                     price : {
                         bsonType : "decimal",
                         description : "must be a number and is required"
@@ -147,7 +147,7 @@ db.createCollection("sales",
                         bsonType : "date",
                     },
                     restaurant_id : {
-                        bsontype : "string"
+                        bsonType : "string"
                     }
                 }
             }
