@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    PARTIAL
+  </head>
+  <body class="container">
+    <header>   
+        <form id="cuisine" action="cuisine" method="get">
+            <div>
+                <label >Type de cuisine </label>
+                <input type="text" name="cuisine"></input>
+            </div>
+        <input type="submit" "value="Submit"></input>
+        </form>
+
+    </header>
+
+    <main>
+        <h1>This is great</h1>
+        <p>Welcome to templating using EJS</p>
+        <ul>
+          <% restaurants.forEach(({name}) => { %>
+          <li>
+            <strong><%=  name, restaurants.address %></strong>
+            %>
+          </li>
+          <% }); %>
+        </ul>
+    </main>
+    <footer> 
+        <button onclick="location.href = '/count';" id="myButton" >Nombre a New York</button>
+        <button onclick="location.href = '/tenBest';" id="myButton" >10 Meilleurs Restaurants</button>
+        <button onclick="location.href = '/brooklyn';" id="myButton" >Restaurants de Brooklyn</button>
+
+ </footer>
+  </body>
+</html>
